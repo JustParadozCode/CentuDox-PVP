@@ -1,4 +1,3 @@
--- skidder 100% open source
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
@@ -105,7 +104,7 @@ local main = create("Frame", {
     BackgroundColor3 = Color3.fromRGB(7, 9, 14),
     BackgroundTransparency = 0.02,
     BorderSizePixel = 0,
-    ClipsDescendants = true
+    ClipsDescendants = false
 }, background)
 corner(main, 18)
 stroke(main, Color3.fromRGB(0, 115, 255), 1.5, 0.2)
@@ -142,7 +141,8 @@ local title = create("TextLabel", {
     TextColor3 = Color3.fromRGB(255, 255, 255),
     TextSize = 22,
     Font = Enum.Font.GothamBlack,
-    TextXAlignment = Enum.TextXAlignment.Left
+    TextXAlignment = Enum.TextXAlignment.Left,
+    ZIndex = 2
 }, main)
 
 create("UIGradient", {
@@ -160,7 +160,8 @@ create("TextLabel", {
     TextColor3 = Color3.fromRGB(110, 125, 155),
     TextSize = 9,
     Font = Enum.Font.GothamBold,
-    TextXAlignment = Enum.TextXAlignment.Left
+    TextXAlignment = Enum.TextXAlignment.Left,
+    ZIndex = 2
 }, main)
 
 local closeBtn = create("TextButton", {
@@ -171,7 +172,8 @@ local closeBtn = create("TextButton", {
     TextColor3 = Color3.fromRGB(170, 190, 220),
     TextSize = 14,
     Font = Enum.Font.GothamBold,
-    AutoButtonColor = false
+    AutoButtonColor = false,
+    ZIndex = 5
 }, main)
 corner(closeBtn, 8)
 stroke(closeBtn, Color3.fromRGB(35, 45, 70), 1, 0.4)
@@ -186,7 +188,8 @@ create("Frame", {
     Position = UDim2.fromOffset(26, 78),
     Size = UDim2.new(1, -52, 0, 1),
     BackgroundColor3 = Color3.fromRGB(30, 40, 65),
-    BorderSizePixel = 0
+    BorderSizePixel = 0,
+    ZIndex = 2
 }, main)
 
 create("TextLabel", {
@@ -197,7 +200,8 @@ create("TextLabel", {
     TextColor3 = Color3.fromRGB(180, 195, 220),
     TextSize = 10,
     Font = Enum.Font.GothamBold,
-    TextXAlignment = Enum.TextXAlignment.Left
+    TextXAlignment = Enum.TextXAlignment.Left,
+    ZIndex = 2
 }, main)
 
 local initialKey = getSavedKey()
@@ -210,10 +214,11 @@ local keyBox = create("TextBox", {
     PlaceholderText = "Paste your license key...",
     PlaceholderColor3 = Color3.fromRGB(65, 75, 95),
     TextColor3 = Color3.fromRGB(240, 245, 255),
-    TextSize, 12,
+    TextSize = 12,
     Font = Enum.Font.GothamMedium,
     ClearTextOnFocus = false,
-    TextXAlignment = Enum.TextXAlignment.Left
+    TextXAlignment = Enum.TextXAlignment.Left,
+    ZIndex = 3
 }, main)
 corner(keyBox, 10)
 stroke(keyBox, Color3.fromRGB(30, 48, 80), 1, 0.25)
@@ -231,7 +236,8 @@ local statusLabel = create("TextLabel", {
     TextColor3 = initialKey ~= "" and Color3.fromRGB(60, 220, 140) or Color3.fromRGB(110, 125, 155),
     TextSize = 10,
     Font = Enum.Font.GothamMedium,
-    TextXAlignment = Enum.TextXAlignment.Left
+    TextXAlignment = Enum.TextXAlignment.Left,
+    ZIndex = 2
 }, main)
 
 local function setStatus(msg, col)
@@ -251,7 +257,8 @@ local function makeButton(name, text, pos, size, bgCol)
         TextColor3 = Color3.fromRGB(240, 245, 255),
         TextSize = 11,
         Font = Enum.Font.GothamBold,
-        AutoButtonColor = false
+        AutoButtonColor = false,
+        ZIndex = 5
     }, main)
     corner(btn, 10)
     stroke(btn, bgCol:Lerp(Color3.fromRGB(255, 255, 255), 0.2), 1, 0.3)
@@ -275,9 +282,10 @@ create("TextLabel", {
     BackgroundTransparency = 1,
     Text = "CENTUDOX  //  ENCRYPTED GATEWAY",
     TextColor3 = Color3.fromRGB(55, 68, 92),
-    TextSize, 9,
+    TextSize = 9,
     Font = Enum.Font.GothamBold,
-    TextXAlignment = Enum.TextXAlignment.Center
+    TextXAlignment = Enum.TextXAlignment.Center,
+    ZIndex = 2
 }, main)
 
 local function copyLink(url, msg)
